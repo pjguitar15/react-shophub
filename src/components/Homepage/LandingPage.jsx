@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { useAuth } from '../../AuthContext'
 import { useHistory } from 'react-router-dom'
-import { Card } from 'react-bootstrap'
-import { message, Modal } from 'antd'
+import { message } from 'antd'
 
 // components
 import CoverPage from './CoverPage.jsx'
 import NavbarComp from './NavbarComp.jsx'
 import ProductWrapper from './Products/ProductWrapper.jsx'
 import CartModal from './CartModal.jsx'
+import CheckoutModal from './CheckoutModal.jsx'
+
 // start of function
 const LandingPage = () => {
   const { currentUser, logout } = useAuth()
@@ -66,22 +67,12 @@ const LandingPage = () => {
         proceedToCheckout={proceedToCheckout}
       />
       {/* Checkout Modal */}
-      <Modal
-        title='Checkout'
-        centered
-        visible={checkoutVisible}
-        onOk={goBackToCart}
-        onCancel={() => setCheckoutVisible(false)}
-        width={1000}
-        okText='Back to Cart'
-        okButtonProps={{ disabled: cartItems.length < 1 ? true : false }}
-      >
-        <div className='font-weight-bold text-dark'>
-          Checking out {cartItems.length} items
-        </div>
-        Paypal Checkout
-      </Modal>
-
+      <CheckoutModal
+        checkoutVisible={checkoutVisible}
+        goBackToCart={goBackToCart}
+        setCheckoutVisible={setCheckoutVisible}
+        cartItems={cartItems}
+      />
       <NavbarComp
         cartItems={cartItems}
         setVisible={setVisible}

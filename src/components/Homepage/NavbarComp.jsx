@@ -17,9 +17,12 @@ const NavbarComp = ({ currentUser, handleLogout, setVisible, cartItems }) => {
             </span>
           </Navbar.Text>
 
-          {/* Cart button */}
+          {/* Cart and Checkout button */}
           <div onClick={() => setVisible(true)} className='mx-3 cart-button'>
-            <i className='fas fa-shopping-cart text-warning'></i>
+            <i
+              className='fas fa-shopping-cart'
+              style={{ color: '#FC8874' }}
+            ></i>
             <span
               className='bg-danger px-1 font-weight-bold text-light rounded'
               style={{ fontSize: '10px' }}
