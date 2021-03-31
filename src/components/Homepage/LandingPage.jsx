@@ -8,7 +8,7 @@ import { message, Modal } from 'antd'
 import CoverPage from './CoverPage.jsx'
 import NavbarComp from './NavbarComp.jsx'
 import ProductWrapper from './Products/ProductWrapper.jsx'
-
+import CartModal from './CartModal.jsx'
 // start of function
 const LandingPage = () => {
   const { currentUser, logout } = useAuth()
@@ -29,10 +29,13 @@ const LandingPage = () => {
   // displays a 2 second success message (ant design)
   const addItemsToCart = (item) => {
     setCartItems([...cartItems, item])
-    message.success({ content: 'Item added to cart!', duration: 4 })
-    message.config({
-      top: 200,
-      maxCount: 3,
+    message.success({
+      content: 'Item added to cart!',
+      duration: 4,
+      maxCount: 2,
+      style: {
+        marginTop: '20vh',
+      },
     })
   }
 
@@ -56,31 +59,12 @@ const LandingPage = () => {
   return (
     <div>
       {/* Cart Modal */}
-      <Modal
-        title='Cart items'
-        centered
+      <CartModal
+        cartItems={cartItems}
         visible={visible}
-        onOk={proceedToCheckout}
-        onCancel={() => setVisible(false)}
-        width={1000}
-        okText='Go to Checkout page'
-        okButtonProps={{ disabled: cartItems.length < 1 ? true : false }}
-      >
-        {cartItems.length < 1 && (
-          <h1 className='text-center text-dark'>Cart Empty :(</h1>
-        )}
-        {cartItems.map((item, index) => (
-          <div key={index} className='row mb-5'>
-            <Card.Img variant='top' src={item.image} className='col-4' />
-            <div className='col-8'>
-              <h4 className='text-dark'>{item.name}</h4>
-              <h6 className='text-dark'>P{item.price}</h6>
-              <p>{item.description}</p>
-            </div>
-          </div>
-        ))}
-      </Modal>
-
+        setVisible={setVisible}
+        proceedToCheckout={proceedToCheckout}
+      />
       {/* Checkout Modal */}
       <Modal
         title='Checkout'
