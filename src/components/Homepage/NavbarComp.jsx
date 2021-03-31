@@ -3,7 +3,7 @@ import { Navbar, Container, Button } from 'react-bootstrap'
 
 const NavbarComp = ({ currentUser, handleLogout, setVisible, cartItems }) => {
   return (
-    <Navbar>
+    <Navbar className='fixed-top bg-light'>
       <Container>
         <Navbar.Brand href='#home' className='font-weight-bold'>
           shophub

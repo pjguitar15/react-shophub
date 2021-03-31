@@ -30,6 +30,10 @@ const LandingPage = () => {
   const addItemsToCart = (item) => {
     setCartItems([...cartItems, item])
     message.success({ content: 'Item added to cart!', duration: 4 })
+    message.config({
+      top: 200,
+      maxCount: 3,
+    })
   }
 
   // Proceed to Checkout
