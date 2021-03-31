@@ -53,15 +53,16 @@ const LandingPage = () => {
     setCheckoutVisible(false)
   }
 
-  // TEST!!!
-  useEffect(() => {
-    console.log(cartItems)
-  }, [cartItems])
+  const removeItemFromCart = (id) => {
+    const filtered = cartItems.filter((item) => item.id != id)
+    setCartItems([...filtered])
+  }
 
   return (
     <div>
       {/* Cart Modal */}
       <CartModal
+        removeItemFromCart={removeItemFromCart}
         cartItems={cartItems}
         visible={visible}
         setVisible={setVisible}

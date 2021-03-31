@@ -1,7 +1,13 @@
 import React from 'react'
 import { Modal } from 'antd'
-import { Card } from 'react-bootstrap'
-const CartModal = ({ cartItems, setVisible, visible, proceedToCheckout }) => {
+import { Card, Button } from 'react-bootstrap'
+const CartModal = ({
+  removeItemFromCart,
+  cartItems,
+  setVisible,
+  visible,
+  proceedToCheckout,
+}) => {
   return (
     <Modal
       title='Cart items'
@@ -23,6 +29,13 @@ const CartModal = ({ cartItems, setVisible, visible, proceedToCheckout }) => {
             <h4 className='text-dark'>{item.name}</h4>
             <h6 className='text-dark'>P{item.price}</h6>
             <p>{item.description}</p>
+            <Button
+              onClick={() => removeItemFromCart(item.id)}
+              variant='danger'
+              size='sm'
+            >
+              Remove from Cart
+            </Button>
           </div>
         </div>
       ))}
