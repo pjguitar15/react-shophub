@@ -9,6 +9,7 @@ import NavbarComp from './NavbarComp.jsx'
 import ProductWrapper from './Products/ProductWrapper.jsx'
 import CartModal from './CartModal.jsx'
 import CheckoutModal from './CheckoutModal.jsx'
+import FeaturedProducts from './Products/FeaturedProducts.jsx'
 
 // start of function
 const LandingPage = () => {
@@ -32,7 +33,7 @@ const LandingPage = () => {
     setCartItems([...cartItems, item])
     message.success({
       content: 'Item added to cart!',
-      duration: 4,
+      duration: 1,
       maxCount: 2,
       style: {
         marginTop: '20vh',
@@ -65,6 +66,7 @@ const LandingPage = () => {
         visible={visible}
         setVisible={setVisible}
         proceedToCheckout={proceedToCheckout}
+        setCartItems={setCartItems}
       />
       {/* Checkout Modal */}
       <CheckoutModal
@@ -81,6 +83,7 @@ const LandingPage = () => {
       />
       <CoverPage />
       <ProductWrapper addItemsToCart={addItemsToCart} />
+      <FeaturedProducts />
     </div>
   )
 }

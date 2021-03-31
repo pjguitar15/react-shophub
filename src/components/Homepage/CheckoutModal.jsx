@@ -1,10 +1,12 @@
 import React from 'react'
 import { Modal } from 'antd'
+import Paypal from '../Paypal.jsx'
 const CheckoutModal = ({
   checkoutVisible,
   goBackToCart,
   setCheckoutVisible,
   cartItems,
+  setCartItems,
 }) => {
   return (
     <Modal
@@ -17,10 +19,14 @@ const CheckoutModal = ({
       okText='Back to Cart'
       okButtonProps={{ disabled: cartItems.length < 1 ? true : false }}
     >
-      <div className='font-weight-bold text-dark'>
-        Checking out {cartItems.length} items
+      <div className='font-weight-bold lead text-center mb-3 text-dark'>
+        Checking out {cartItems.length} item
+        <span className={cartItems.length === 1 && 'd-none'}>s</span>
       </div>
-      Paypal Checkout
+      <Paypal
+        setCartItems={setCartItems}
+        setCheckoutVisible={setCheckoutVisible}
+      />
     </Modal>
   )
 }
