@@ -14,7 +14,7 @@ const CoverPage = () => {
             <h1 className='text-light font-weight-bold'>ShopHub!</h1>
             <p className='lead text-light '>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-              soluta ipsum eum, molestias nisi perferendis consequuntur.
+              soluta ipsum eum, molestias nisi perferendis consequunturs.
             </p>
           </div>
           <div>
