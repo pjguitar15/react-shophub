@@ -1,9 +1,9 @@
 import React from 'react'
-import coverimg from '../../Assets/coverimg.svg'
+import coverimg from '../../Assets/covershoes.png'
 import { Container } from 'react-bootstrap'
 const CoverPage = () => {
   return (
-    <div style={{ background: '#fc8874' }}>
+    <div style={{ background: '#FFB1A4' }}>
       <Container>
         <div
           className='d-flex justify-content-between align-items-center'

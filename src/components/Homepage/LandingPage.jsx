@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useAuth } from '../../AuthContext'
 import { useHistory } from 'react-router-dom'
 import { message } from 'antd'
